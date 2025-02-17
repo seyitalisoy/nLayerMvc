@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -36,6 +37,11 @@ namespace Business.Concrete
         public Product GetById(int id)
         {
             return _productDal.Get(i => i.Id == id);
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            return _productDal.GetProductDetails();
         }
 
         public void Update(Product entity)

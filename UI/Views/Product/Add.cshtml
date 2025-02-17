@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ürün Ekleme</h2>
+@using (Html.BeginForm("Add", "Product", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="ProName">Product Name: </label>
+        <input type="text" id="ProName" name="ProName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="ProStock">Stock Amount: </label>
+        <input type="text" id="ProStock" name="ProStock" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="ProPrice">Price: </label>
+        <input type="text" id="ProPrice" name="ProPrice" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Kategori")
+        @Html.DropDownList("CategoryId", (SelectList)ViewBag.Categories, "Bir kategori seçin", new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gönder</button>
+}
+

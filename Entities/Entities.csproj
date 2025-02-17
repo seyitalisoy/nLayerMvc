@@ -54,6 +54,7 @@
     <Compile Include="Concrete\Category.cs" />
     <Compile Include="Concrete\Order.cs" />
     <Compile Include="Concrete\Product.cs" />
+    <Compile Include="DTOs\ProductDetailDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

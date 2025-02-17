@@ -22,5 +22,10 @@ namespace Business.Concrete
         {
             _categoryDal.Add(entity);
         }
+
+        public List<Category> GetAll()
+        {
+            return _categoryDal.GetAll();
+        }
     }
 }

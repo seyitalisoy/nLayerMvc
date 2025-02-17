@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Abstract
 {
@@ -19,5 +20,6 @@ namespace Business.Abstract
         void Delete(Product entity);
 
         void Update(Product entity);
+        List<ProductDetailDto> GetProductDetails();
     }
 }

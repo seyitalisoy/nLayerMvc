@@ -10,6 +10,7 @@ namespace Entities.Concrete
     public class Order : IEntity
     {
         public int Id { get; set; }
+        public DateTime OrderDate { get; set; }
         public ICollection<Product> Products { get; set; }
     }
 }
