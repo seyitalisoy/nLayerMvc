@@ -16,17 +16,15 @@ namespace DataAccess.Concrete
         {
             using (Context context = new Context())
             {
-                var result = from p in context.Products
-                             join o in context.Orders on p.OrderId equals o.Id 
-                             join c in context.Categories on p.CategoryId equals c.Id 
+                var result = from p in context.Products                             
+                             join c in context.Categories on p.CategoryId equals c.CategoryId 
                              select new ProductDetailDto
                              {
-                                 Id = p.Id,
-                                 Name = p.Name,
-                                 CategoryName = c.Name, 
-                                 Stock = p.Stock,
-                                 Price = p.Price,
-                                 OrderDate = o.OrderDate 
+                                 Id = p.ProductId,
+                                 Name = p.ProductName,
+                                 CategoryName = c.CategoryName, 
+                                 Stock = p.UnitsInStock,
+                                 Price = p.UnitPrice,                                 
                              };
                 return result.ToList();
             }

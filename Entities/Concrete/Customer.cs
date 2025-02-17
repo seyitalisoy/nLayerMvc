@@ -7,12 +7,12 @@ using Core.Entities;
 
 namespace Entities.Concrete
 {
-    public class Order : IEntity
+    public class Customer : IEntity
     {
-        public int OrderID { get; set; }
         public string CustomerId { get; set; }
-        public virtual Customer Customer { get; set; }
-        public DateTime OrderDate { get; set; }
-        
+        public string CompanyName { get; set; }
+        public string City { get; set; }
+        public ICollection<Order> Orders { get; set; }
+
     }
 }

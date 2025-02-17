@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Müşteri Ekleme</h2>
+@using (Html.BeginForm("Add", "Customer", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="Name">Name: </label>
+        <input type="text" id="Name" name="CompanyName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="City">Şehir: </label>
+        <input type="text" id="City" name="City" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Id">Id: </label>
+        <input type="text" id="Id" name="CustomerId" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gönder</button>
+}
+
+

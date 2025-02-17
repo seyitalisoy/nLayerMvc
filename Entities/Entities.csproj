@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\Category.cs" />
+    <Compile Include="Concrete\Customer.cs" />
     <Compile Include="Concrete\Order.cs" />
     <Compile Include="Concrete\Product.cs" />
     <Compile Include="DTOs\ProductDetailDto.cs" />

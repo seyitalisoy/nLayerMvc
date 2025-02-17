@@ -1,0 +1,30 @@
+﻿
+
+@model List<Entities.Concrete.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>No</th>
+        <th>Ad</th>
+        <th>Şehir</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CustomerId</td>
+            <td>@item.CompanyName</td>            
+            <td>@item.City</td>
+
+        </tr>
+    }
+</table>
+
+<form method="get" action="@Url.Action("Add", "Customer")">
+    <button type="submit" id="addProductBtn" class="btn btn-primary">Ekle</button>
+</form>
+

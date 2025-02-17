@@ -5,6 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.SuccessMessage
+    </div>
+}
 
 <table class="table">
     <tr>
@@ -13,7 +19,6 @@
         <th>Kategori</th>
         <th>Ürün Adedi</th>
         <th>Ürün Fiyatı</th>
-        <th>Ürün Tarihi</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -23,7 +28,6 @@
             <td>@item.CategoryName</td>
             <td>@item.Stock</td>
             <td>@item.Price</td>
-            <td>@item.OrderDate</td>
         </tr>
     }
 </table>

@@ -55,17 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\ICustomerDal.cs" />
     <Compile Include="Abstract\IOrderDal.cs" />
     <Compile Include="Abstract\IProductDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\EfCategoryDal.cs" />
+    <Compile Include="Concrete\EfCustomerDal.cs" />
     <Compile Include="Concrete\EfOrderDal.cs" />
     <Compile Include="Concrete\EfProductDal.cs" />
-    <Compile Include="Migrations\202502170830363_mig_1.cs" />
-    <Compile Include="Migrations\202502170830363_mig_1.Designer.cs">
-      <DependentUpon>202502170830363_mig_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,11 +78,6 @@
       <Project>{B1FB5A01-673E-4EBF-B85E-3B2EEA841863}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202502170830363_mig_1.resx">
-      <DependentUpon>202502170830363_mig_1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

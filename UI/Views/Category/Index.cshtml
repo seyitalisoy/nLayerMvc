@@ -5,6 +5,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.SuccessMessage
+    </div>
+}
 
 <table class="table">
     <tr>
@@ -15,9 +27,9 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.Desciption</td>
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+            <td>@item.Description</td>
         </tr>
     }
 </table>
@@ -26,11 +38,11 @@
 {
     <div class="form-group">
         <label for="Name">Name: </label>
-        <input type="text" id="Name" name="Name" class="form-control" />
+        <input type="text" id="Name" name="CategoryName" class="form-control" />
     </div>
     <div class="form-group">
         <label for="Desc">Açıklama: </label>
-        <input type="text" id="Desc" name="Desciption" class="form-control" />
+        <input type="text" id="Desc" name="Description" class="form-control" />
     </div>
     <button type="submit" class="btn btn-primary">Ekle</button>
 }

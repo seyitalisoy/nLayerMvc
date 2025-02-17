@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -19,34 +20,37 @@ namespace Business.Concrete
             _productDal = productDal;
         }
 
-        public void Add(Product entity)
+        public IResult Add(Product entity)
         {
             _productDal.Add(entity);
+            return new SuccessResult("Ürün eklendi");
         }
 
-        public void Delete(Product entity)
+        public IResult Delete(Product entity)
         {
-           _productDal.Delete(entity);
+            _productDal.Delete(entity);
+            return new SuccessResult("Ürün silindi");
         }
 
-        public List<Product> GetAll()
+         public IDataResult<List<Product>> GetAll()
         {
-            return _productDal.GetAll();
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll());
         }
 
-        public Product GetById(int id)
+        public IDataResult<Product> GetById(int id)
         {
-            return _productDal.Get(i => i.Id == id);
+            return new SuccessDataResult<Product>(_productDal.Get(i => i.ProductId == id));
         }
 
-        public List<ProductDetailDto> GetProductDetails()
+        public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            return _productDal.GetProductDetails();
+            return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
         }
 
-        public void Update(Product entity)
+        public IResult Update(Product entity)
         {
             _productDal.Update(entity);
+            return new SuccessResult("Ürün güncellendi.");
         }
     }
 }

@@ -20,16 +20,22 @@ namespace UI.Controllers
 
         public ActionResult Index()
         {
-            var result = _categoryService.GetAll();
+            var result = _categoryService.GetAll().Data;
             return View(result);
         }
 
         [HttpPost]
         public ActionResult Add(Category category)
         {
-           var model = new Category { Name = category.Name, Desciption = category.Desciption };
-           _categoryService.Add(model);
-            return RedirectToAction("Index");
+            var model = new Category { CategoryName = category.CategoryName, Description = category.Description };
+            var result = _categoryService.Add(model);
+            if (!result.Success)
+            {                
+                ViewBag.ErrorMessage = result.Message;                
+                return View("Index", _categoryService.GetAll().Data);  
+            }
+            ViewBag.SuccessMessage = result.Message;
+            return View("Index", _categoryService.GetAll().Data);
         }
     }
 }

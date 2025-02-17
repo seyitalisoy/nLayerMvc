@@ -24,30 +24,27 @@ namespace UI.Controllers
 
         public ActionResult Index()
         {
-            var model = _productService.GetProductDetails();            
+            var model = _productService.GetProductDetails().Data;            
             return View(model);
         }
         public ActionResult Add()
         {
-            var categories = _categoryService.GetAll();
-            ViewBag.Categories = new SelectList(categories, "Id", "Name");
+            var categories = _categoryService.GetAll().Data;
+            ViewBag.Categories = new SelectList(categories, "CategoryId", "CategoryName");
             return View();
         }
 
         [HttpPost]
         public ActionResult Add(ProductAddViewModel model)
         {
-            _orderService.Add(new Order { OrderDate = DateTime.Now });
-            var order = _orderService.GetAll();
-            var idNum = order.Count();
             _productService.Add(new Product
             {
-                OrderId = idNum,
                 CategoryId = model.CategoryId,
-                Name = model.ProName,
-                Price = model.ProPrice,
-                Stock = model.ProStock
+                ProductName = model.ProName,
+                UnitPrice = model.ProPrice,
+                UnitsInStock = model.ProStock
             });
+            // logicler gelicek , success result, error result
 
             return RedirectToAction("Index");
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -27,5 +28,15 @@ namespace Business.Concrete
         {
             return _orderDal.GetAll();
         }
+
+        IResult IOrderService.Add(Order entity)
+        {
+            _orderDal.Add(entity);
+            return new SuccessResult("Sipariş eklendi");
+        }
+
+        IDataResult<List<Order>> IOrderService.GetAll()
+        {
+            return new SuccessDataResult<List<Order>>(_orderDal.GetAll());    }
     }
 }

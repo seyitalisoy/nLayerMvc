@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Core.Utilities.Results;
 using Entities.Concrete;
 using Entities.DTOs;
 
@@ -11,15 +12,15 @@ namespace Business.Abstract
 {
     public interface IProductService
     {
-        List<Product> GetAll();
+        IDataResult<List<Product>> GetAll();
 
-        Product GetById(int id);
+        IDataResult<Product> GetById(int id);
 
-        void Add(Product entity);
+        IResult Add(Product entity);
 
-        void Delete(Product entity);
+        IResult Delete(Product entity);
 
-        void Update(Product entity);
-        List<ProductDetailDto> GetProductDetails();
+        IResult Update(Product entity);
+        IDataResult<List<ProductDetailDto>> GetProductDetails();
     }
 }
